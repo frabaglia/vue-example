@@ -9,27 +9,20 @@
 
 <body>
   <div id="app">
-    {{ message }}
+    <custom-vue></custom-vue>
   </div>
-  <div id="app-2">
-    <span v-bind:title="message">
-    Hover your mouse over me for a few seconds
-    to see my dynamically bound title!
-  </span>
-  </div>
-
 </body>
 <script>
+  //First create all new directives
+  Vue.component('custom-vue', {
+    template: '<div>This is a todo</div>'
+  })
+
+  //After that, instace app
   var app = new Vue({
     el: '#app',
     data: {
       message: 'Hello Vue!'
-    }
-  })
-  var app2 = new Vue({
-    el: '#app-2',
-    data: {
-      message: 'You loaded this page on ' + new Date().toLocaleString()
     }
   })
 </script>
